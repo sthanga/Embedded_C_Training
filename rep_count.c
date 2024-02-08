@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-
+// The program will return the maximum count of repeated characters
 int main (void)
 {
     char a[] = "abcdefgacbdarjanshfksuashfnklfhienn";
