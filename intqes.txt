@@ -1,0 +1,10 @@
+07/02/2024 
+max-lnr qstn
+  1. Asked bit swapping like get a interger number then convert into binary then all odd digit goes to even digit and even 
+  digit goes to odd places; Ans one right shift;
+  2. asked string polidrom : of given string with count of polidrom 
+    string reverse  methiod : strrev(stri_var)
+  3. Network of ethernet /Tcpip, UDP
+  4. spinlock, mutex,semaphore, deadlock, ipc etc;
+  5. common process sharing a data with different process
+  6. multithreading -> Multiprocess
