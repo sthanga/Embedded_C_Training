@@ -8,3 +8,9 @@ max-lnr qstn
   4. spinlock, mutex,semaphore, deadlock, ipc etc;
   5. common process sharing a data with different process
   6. multithreading -> Multiprocess
+
+
+spinlock - to fetch the data from the shared resource through locking mechanism
+that is spin lock
+
+dead lock  - to fetch the 
