@@ -14,3 +14,17 @@ spinlock - to fetch the data from the shared resource through locking mechanism
 that is spin lock
 
 dead lock  - to fetch the 
+**†*************†**†****************"
+Hear constant pointer and pointer to constant 
+
+const int a;
+
+int const a;
+
+const int *a;
+
+int * const a;
+
+int const * a const;
+
+*******************************"***********"
