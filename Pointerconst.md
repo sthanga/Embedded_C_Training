@@ -5,6 +5,9 @@
 ### 4. const int const *p   -> pointer constant
 ### 5. const int *const p   -> constant to contant pointer
 
+### constant pointer. 
+### pointer to constant.
+### constant pointer to constant.
 
 ## 1.  const int *p   (constant to pointer)
 
