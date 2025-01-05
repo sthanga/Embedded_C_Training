@@ -33,6 +33,36 @@
    * Only few variables can be stored in register memory. So, we can use variables as register that are used very often in a C program.
 
 ### 1.1 difference between i++ and ++i 
+``` bash
+This incremental and decremental can cause some confusion,  but easily remember the working of ++i , i++ , --i , i--.
+The ++i operator increments the value of i and then returns the incremented value.
+For example, if i is initially 1, ++i will increment i to 2 and return 2.
+On the other hand, the i++ operator also increments the value of i,
+but it returns the original value of i before the increment.
+Using the same initial value of 1, i++ will increment i to 2 but return 1.
+```
+``` c
+1	#include <stdio.h>
+2	
+3	int main() {
+4	  int i=1;
+5	  int j=1;
+6	  int l=1;
+7	  int m=1;
+8	  //i++;
+9	  printf(" the value after i++ is : %d\n",i++);
+10	  //++j;
+11	  printf(" the value after ++j is : %d\n",++j);
+12	  
+13	  //l--;
+14	  printf(" the value after l-- is : %d\n",l--);
+15	  //--m;
+16	  printf(" the value after --m is : %d\n",--m);
+17	  return 0;
+18	}
+output is 
+```
+![image](https://github.com/user-attachments/assets/8ae11256-1041-4ef3-9f4a-bc637a8db5ba)
 
 ### 2. What is static variable?
 
