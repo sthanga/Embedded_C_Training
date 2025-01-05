@@ -32,7 +32,8 @@
    * Because, register variables are stored in register memory whereas auto variables are stored in main CPU memory.
    * Only few variables can be stored in register memory. So, we can use variables as register that are used very often in a C program.
 
- 
+### 1.1 difference between i++ and ++i 
+
 ### 2. What is static variable?
 
 There are 3 main uses for the static variable.
@@ -462,6 +463,64 @@ void my_strncpy(char * dest, const char* src,int n)
     }
 }
 ```
+### pointer with structure:
 
+```c
+#include <stdio.h>
+2	#include <stdlib.h>
+3	
+4	struct a1 {
+5	  int data ;
+6	  struct a1 * test;
+7	};
+8	
+9	int main()
+10	{
+11	    int a = 10;
+12	    int *p  = &a;
+13	    int *c;
+14	    printf("pointer address p: %p \n", p);   // pointer pointing to memory
+15	    printf("pointer address a: %p \n", &a);  // pointer pointing to a variable memeory
+16	    printf("pointer address &p: %p \n", &p); // pointer memeory
+17	    printf("pointer address p: %p \n", &c);  // pointer memeory
+18     free(p);                                 // releasing the memory;  // dangling pointer
+       p = NULL;                                // avoid dangling pointer with null allocation;
+       struct a1 *l1 = (struct a1*)malloc(sizeof(struct a1));   // Dynamic memory allocation with 'malloc'to the structure 
+19	    l1->data = 122;
+20	    l1->test = NULL;
+21	    if (l1->test == NULL)
+22	    {
+23	        printf("memory allocated \n");
+24	    }
+25	    else {printf("memory not allocated \n"); }
+26	    printf("fdd %d", l1->data);
+27	    
+28	    l1->test =  (struct a1*)malloc(sizeof(struct a1));
+29	    l1->test->data = 1122;
+30	    printf("fdd %d", l1->test->data);
+31	
+32	    return 0;
+33	}
+
+output :
+```
+![image](https://github.com/user-attachments/assets/66917031-4b0d-4ef0-b013-ad4429f13bee)
+
+```c 
+#include <stdio.h>
+
+	int main() {
+	  int x[] = {10, 20, 30};
+	  int* p = &x[1]; // pointer into middle
+	  char* fruit[3] = {"apples  jknd",     // note : the space will be '' '' like this only endof the string will be allocate '\0'
+	                    "bananas",
+	                    "cherries"};
+	
+	  printf("I have %d %s\n", *p, fruit[1]);
+	  return 0;
+	}
+output :
+```
+![Screenshot from 2025-01-05 12-19-13](https://github.com/user-attachments/assets/d79244a1-0477-4c59-b677-bbc1551d7478)
 
 The program return the number of repeated characters and which character is most repeated in the given string
