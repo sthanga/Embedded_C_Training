@@ -466,7 +466,7 @@ void my_strncpy(char * dest, const char* src,int n)
 ### pointer with structure:
 
 ```c
-#include <stdio.h>
+1       #include <stdio.h>
 2	#include <stdlib.h>
 3	
 4	struct a1 {
@@ -509,7 +509,7 @@ output :
 ```c 
 #include <stdio.h>
 
-	int main() {
+int main() {
 	  int x[] = {10, 20, 30};
 	  int* p = &x[1]; // pointer into middle
 	  char* fruit[3] = {"apples  jknd",     // note : the space will be '' '' like this
@@ -518,8 +518,8 @@ output :
 	                    "cherries"};
 	
 	  printf("I have %d %s\n", *p, fruit[1]);
-	  return 0;
-	}
+	return 0;
+}
 output :
 ```
 ![Screenshot from 2025-01-05 12-19-13](https://github.com/user-attachments/assets/d79244a1-0477-4c59-b677-bbc1551d7478)
