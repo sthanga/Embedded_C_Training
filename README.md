@@ -483,9 +483,9 @@ void my_strncpy(char * dest, const char* src,int n)
 15	    printf("pointer address a: %p \n", &a);  // pointer pointing to a variable memeory
 16	    printf("pointer address &p: %p \n", &p); // pointer memeory
 17	    printf("pointer address p: %p \n", &c);  // pointer memeory
-18     free(p);                                 // releasing the memory;  // dangling pointer
-       p = NULL;                                // avoid dangling pointer with null allocation;
-       struct a1 *l1 = (struct a1*)malloc(sizeof(struct a1));   // Dynamic memory allocation with 'malloc'to the structure 
+18          free(p);                                 // releasing the memory;  become dangling pointer
+            p = NULL;                                // avoid dangling pointer with null allocation;
+            struct a1 *l1 = (struct a1*)malloc(sizeof(struct a1));   // Dynamic memory allocation with 'malloc'to the structure 
 19	    l1->data = 122;
 20	    l1->test = NULL;
 21	    if (l1->test == NULL)
@@ -512,8 +512,9 @@ output :
 	int main() {
 	  int x[] = {10, 20, 30};
 	  int* p = &x[1]; // pointer into middle
-	  char* fruit[3] = {"apples  jknd",     // note : the space will be '' '' like this only endof the string will be allocate '\0'
-	                    "bananas",
+	  char* fruit[3] = {"apples  jknd",     // note : the space will be '' '' like this
+						//only end of the string will be allocate '\0'  refer the below image
+	                    "bananas", 
 	                    "cherries"};
 	
 	  printf("I have %d %s\n", *p, fruit[1]);
