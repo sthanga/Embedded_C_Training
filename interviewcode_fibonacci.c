@@ -33,3 +33,39 @@ int main()
     printf("\n");
     return 0;
 }
+
+
+#include <stdio.h>
+#include <string.h>
+
+void findDuplicates(char *str) {
+    int hashTable[256] = {0}; // Create a hash table for all ASCII characters
+    int i;
+
+    // Traverse the string and increment the count for each character
+    for (i = 0; str[i] != '\0'; i++) {
+        hashTable[(int)str[i]]++;
+    }
+
+    // Print characters that appear more than once
+    printf("Duplicate characters in the string are:\n");
+    for (i = 0; i < 256; i++) {
+        if (hashTable[i] > 1) {
+            printf("%c occurs %d times\n", i, hashTable[i]);
+        }
+    }
+}
+
+int main() {
+    char str[] = "dfsfgsnfjtgsddvweqefgsgf";
+
+    //printf("Enter a string: ");
+    //fgets(str, sizeof(str), stdin);
+
+    // Remove newline character from fgets input
+    str[strcspn(str, "\n")] = '\0';
+
+    findDuplicates(str);
+
+    return 0;
+}
