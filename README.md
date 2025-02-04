@@ -555,3 +555,28 @@ output :
 ![Screenshot from 2025-01-05 12-19-13](https://github.com/user-attachments/assets/d79244a1-0477-4c59-b677-bbc1551d7478)
 
 The program return the number of repeated characters and which character is most repeated in the given string
+
+# srting swap
+``` c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    // Write C code here
+   char str[30] ;
+   //gets(str);
+   fgets(str, sizeof(str), stdin);
+   int l=strlen(str);
+   for(int i=0; i<l/2; i++)
+   {
+       char swp = str[i];
+       str[i] = str[l-i-1];
+       str[l-i-1]= swp;
+   }
+   printf("%s", str);
+    return 0;
+}
+o/p : dsdklsjfd
+dfjslkdsd
+```
