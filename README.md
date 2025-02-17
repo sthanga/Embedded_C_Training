@@ -255,6 +255,65 @@ void f()
    free(ptr);
    return;
 }
+### Pointer read only memeory
+
+```c
+#include<stdio.h>
+void swap (char *x, char *y) {
+    char *t = x;
+    x = y;
+    y = t;
+}
+int main()
+{
+    char *x = "geeksquiz";
+    char *y = "geeksforgeeks";
+    char *t;
+    swap(x, y);
+    printf("(%s, %s)", x, y);
+    t = x;
+    x = y;
+    y = t;
+    printf("\\n(%s, %s)", x, y);
+    return 0;
+}
+
+outputs :
+(geeksquiz, geeksforgeeks)\n(geeksforgeeks, geeksquiz)
+
+char *x = "geeksquiz";
+char *y = "geeksforgeeks";
+
+these are read only memory in the heap so the function call will not change,
+if that has to swap then refefence to share to function
+```
+```c
+#include <stdio.h>
+void f(char**);
+int main()
+{
+    char *argv[] = { "ab", "cd", "ef", "gh", "ij", "kl" };
+    f(argv);
+    return 0;
+}
+void f(char **p)
+{
+    char *t;
+    t = (p += sizeof(int))[-1];
+    printf("%s\\n", t);
+}
+
+output:
+	gh
+	i.e t = (0 + 4) [-1]
+	    	ij[-1]
+		gh
+```
+
+ ```c
+
+```
+‘ptrdata’ is a pointer to a data type. The expression *ptrdata++ is evaluated as (in C++) : *(ptrdata++)
 
 ### 16. What is the size of pointer in 32 bit machine?
 
