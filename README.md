@@ -639,3 +639,73 @@ int main() {
 o/p : dsdklsjfd
 dfjslkdsd
 ```
+## bit swapping in c
+``` c
+#include <stdio.h>
+#include <stdint.h>
+//swap bit 17 with bit 25 in a 64bit integer  ==> 17 =0 25 =1;
+ 
+int main()
+{
+    uint64_t a =0x700ae, temp1, temp2; // 000{0} 0000 011{1} 0000 0000 1010 1110
+    printf("%lx\n", a);
+    int swap_bit1, swap_bit2 ;
+    swap_bit1 = ( a>>17) & 1;
+    swap_bit2 = (a >> 25) & 1;
+    printf("swap_bit1 :%x\n", swap_bit1);
+    printf("swap_bit2 :%x\n", swap_bit2);
+    if ( swap_bit2 == swap_bit1)
+        {
+            printf("%lx \n", a);
+            return 0 ;
+        }
+    else
+    {
+        //a = (a^(1 << 25));   // this two line ok
+        //a = (a^(1 << 17));   // this two line ok
+        a ^= (1 << 25) | (1 << 17);  // this is also fine 
+    }   
+
+    printf("%lx \n", a);
+    return 0;
+}
+
+output :
+	700ae
+	swap_bit1 :1
+	swap_bit2 :0
+	20500ae 
+```
+## bit swapping in C++ cog tech ser
+```cpp
+#include <iostream>
+#include <bitset>
+
+int main()
+{
+    uint64_t a = 0x700ae; // 0000 0000 0000 0111 0000 0000 1010 1110
+    printf("Before swap: %lx\n", a);
+
+    int swap_bit1 = (a >> 17) & 1;  // Extract bit 17
+    int swap_bit2 = (a >> 25) & 1;  // Extract bit 25
+
+    printf("Bit 17: %x\n", swap_bit1);
+    printf("Bit 25: %x\n", swap_bit2);
+
+    // If the bits are different, toggle them
+    if (swap_bit1 != swap_bit2)
+    {
+        a ^= (1ULL << 17);  // Toggle bit 17
+        a ^= (1ULL << 25);  // Toggle bit 25
+    }
+
+    printf("After swap: %lx\n", a);
+    return 0;
+}
+output
+
+Before swap: 700ae
+Bit 17: 1
+Bit 25: 0
+After swap: 20500ae
+```
