@@ -709,3 +709,34 @@ Bit 17: 1
 Bit 25: 0
 After swap: 20500ae
 ```
+```c
+#include <stdio.h>
+#include <math.h>
+// eg.  Input : 198701, output: 198711
+// Swap the zeros in a given number to 1
+int updateNum(int gNum,int changeNum, int upNum )
+{
+    int tempNum, count=0;
+    tempNum = gNum ;
+    while (gNum)
+    {
+        if(gNum%10 == changeNum)
+        {
+          tempNum = (tempNum + pow(10, count) )- (pow(10,count) *changeNum);  // ==> tempNum == 198700 +
+          //printf ("%d\n", tempNum);
+        }
+        gNum = gNum/10;
+        count++;
+    }
+    return tempNum;
+}
+
+int main()
+{
+    int num = 178707, cc =0;
+    printf("Given No : %d\n", num);
+    printf("Updated No : %d\n", updateNum(num, 7, 1));
+    return 0;
+}
+
+```
