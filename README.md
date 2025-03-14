@@ -129,7 +129,16 @@ here two ".c" file interchaning the variable and function with single main only.
   * This storage class has a duration that is permanent. Any variable of this class retains its value until changed by another assignment.
   * The scope is global.
   * A variable can be known or seen by all functions within a program.
-  
+
+Modifier		Scope				Accessible Outside File?	Retains Value?
+static (global)		File-level (internal linkage)		❌ No			   ✅ Yes
+static (local)		Function-level				❌ No  			   ✅ Yes (between calls)
+extern			Global scope				✅ Yes			   ✅ Yes
+### Key Takeaways:
+
+static makes a variable/function file-private.
+extern makes a variable/function visible across files.
+They cannot be used together because they serve opposite purposes.
   
 ### 4. What is difference between static local and static global variable?
 
