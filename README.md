@@ -74,7 +74,40 @@ There are 3 main uses for the static variable.
   * By default function is extern, so it will be visible from other files if the function declaration is as static, it is invisible for the outer files.
 1. Static for global variables:
   * By default we can use the global variables from outside files If it is static global..that variable is limited to with in the file.
-  
+### What is Extern variable?
+The extern keyword in C is used to declare a global variable or function that is defined in another file or later in the same file. It tells the compiler that the variable or function exists but is defined elsewhere.
+```c
+c programs to expain
+
+file.c
+
+#include <stdio.h>
+int globalVar = 100;  // Global variable definition
+
+void printValue() {
+    printf("Global Variable: %d\n", globalVar);
+}
+
+file2.c
+
+#include <stdio.h>
+
+extern int globalVar;  // Declare the variable (defined in file1.c)
+extern void printValue();  // Function prototype
+
+int main() {
+    printf("Accessing globalVar in file2.c: %d\n", globalVar);
+    printValue();  // Call function from file1.c
+    return 0;
+}
+
+compile :
+gcc file1.c file2.c -o output
+./output
+
+
+here two ".c" file interchaning the variable and function with single main only.
+```
 ### 3. What is difference between static and extern?
  
 #### Static:
