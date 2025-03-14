@@ -88,6 +88,7 @@ void printValue() {
     printf("Global Variable: %d\n", globalVar);
 }
 
+/************************************************************************************/
 file2.c
 
 #include <stdio.h>
@@ -101,6 +102,7 @@ int main() {
     return 0;
 }
 
+/************************************************************************************/
 compile :
 gcc file1.c file2.c -o output
 ./output
