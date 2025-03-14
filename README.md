@@ -77,10 +77,10 @@ There are 3 main uses for the static variable.
 ### What is Extern variable?
 The extern keyword in C is used to declare a global variable or function that is defined in another file or later in the same file. It tells the compiler that the variable or function exists but is defined elsewhere.
 ```c
-c programs to expain
-
+c programs to expain on Extern
+/************************************************************************************/
 file.c
-
+/************************************************************************************/
 #include <stdio.h>
 int globalVar = 100;  // Global variable definition
 
@@ -90,7 +90,7 @@ void printValue() {
 
 /************************************************************************************/
 file2.c
-
+/************************************************************************************/
 #include <stdio.h>
 
 extern int globalVar;  // Declare the variable (defined in file1.c)
@@ -104,8 +104,12 @@ int main() {
 
 /************************************************************************************/
 compile :
+
 gcc file1.c file2.c -o output
 ./output
+
+/************************************************************************************/
+
 
 
 here two ".c" file interchaning the variable and function with single main only.
