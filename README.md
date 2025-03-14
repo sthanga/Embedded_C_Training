@@ -788,3 +788,41 @@ int main()
 }
 
 ```
+```c
+// reverse the given string
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *s1, char *s2)
+{
+    char tmep = *s1;
+    *s1=*s2;
+    *s2=tmep;
+} 
+void reveseString(char str[])
+{
+    printf("%s\n", str);
+    int len = strlen(str);
+    printf("%d \n", len);
+     char tmep;
+    for (int i=0; i<len/2; ++i)
+    {
+        //tmep = str[i];
+        //str[i] = str[len-i-1];
+        //str[len-i-1] = tmep;
+        swap (&str[i], &str[len-i-1]);
+    }
+    printf("%s\n", str);
+}
+
+int main() {
+    // Write C code here
+    printf("Try programiz.pro \n ");
+    char str[] = "abcefgh";
+    reveseString(str);
+    
+    return 0;
+}
+
+```
