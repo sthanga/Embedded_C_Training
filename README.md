@@ -875,3 +875,145 @@ int main() {
     
 
 ```
+
+
+```c
+
+// it is for adc voltage conversation 
+
+#include <stdio.h>
+
+#define V_REF 2.0       // ADC reference voltage (scaled)
+#define ADC_MAX 1023    // 10-bit ADC max value
+#define SCALE_FACTOR 5.0  // Scaling from 2V to 12V
+
+// Function to convert ADC value to actual voltage
+float adc_to_voltage(int adc_value) {
+    return (adc_value * V_REF / ADC_MAX) * SCALE_FACTOR;
+}
+
+int main() {
+    int adc_value = 512;  // Example ADC value
+
+    float actual_voltage = adc_to_voltage(adc_value);
+    printf("ADC Value: %d\n", adc_value);
+    printf("Actual Input Voltage: %.2f V\n", actual_voltage);
+
+    return 0;
+}
+
+
+```
+
+```c
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define MAX 100  // Adjust based on expected unique strings
+
+typedef struct {
+    char *word;
+    int count;
+} HashEntry;
+
+HashEntry hashTable[MAX];  // Simple hash table
+int hashSize = 0;
+
+void insert_to_hash(char *str) {
+    for (int i = 0; i < hashSize; i++) {
+        if (strcmp(hashTable[i].word, str) == 0) {
+            hashTable[i].count++;
+            return;
+        }
+    }
+    hashTable[hashSize].word = str;
+    hashTable[hashSize].count = 1;
+    hashSize++;
+}
+
+void find_duplicates(char *arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        insert_to_hash(arr[i]);
+    }
+
+    printf("Duplicate strings: ");
+    for (int i = 0; i < hashSize; i++) {
+        if (hashTable[i].count > 1) {
+            printf("%s ", hashTable[i].word);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    char *arr[] = {"apple", "banana", "cherry", "apple", "date", "banana"};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    find_duplicates(arr, size);
+    return 0;
+}
+
+
+```
+
+
+```c
+
+#include <stdio.h>
+#include <string.h>
+
+void find_duplicates(char *arr[], int size) {
+    printf("Duplicate strings: ");
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (strcmp(arr[i], arr[j]) == 0) {  // Compare strings
+                printf("%s ", arr[i]);
+                break;  // Avoid multiple prints of the same duplicate
+            }
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    char *arr[] = {"apple", "banana", "cherry", "apple", "date", "banana"};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    find_duplicates(arr, size);
+    return 0;
+}
+
+
+```
+
+
+```c
+
+#include <stdio.h>
+#define MAX 100  // Adjust according to input range
+
+void find_duplicates(int arr[], int size) {
+    int hash[MAX] = {0};  // Hash table to store frequencies
+    
+    printf("Duplicate elements: ");
+    for (int i = 0; i < size; i++) {
+        hash[arr[i]]++;
+        if (hash[arr[i]] == 2) {  // Print only when a duplicate is found
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {1, 3, 4, 2, 5, 3, 6, 2};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    find_duplicates(arr, size);
+    return 0;
+}
+
+
+```
