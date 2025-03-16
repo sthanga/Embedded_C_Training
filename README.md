@@ -1017,3 +1017,30 @@ int main() {
 
 
 ```
+
+#### To print binary and decimal values vice versa 
+
+```c
+    int bibpr = 0b11111111 ;
+    printf ("%b", bibpr);  
+
+    // output is : 11111111 
+
+    
+    int bibpr = 0b11111111 ;
+    printf ("%d", bibpr);
+    // output is 255
+
+    
+    int bibpr = 255;
+    printf ("%b", bibpr);
+
+    // output is 1111111
+
+    int bibpr = 0x255;
+    printf ("%b", bibpr);
+
+    // output is 1001010101
+    
+
+```
