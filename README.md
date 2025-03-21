@@ -583,7 +583,7 @@ int main()
 } 
 ```
 
-#### 5. strncpy
+### 5. strncpy
 
 ```c
 void my_strncpy(char * dest, const char* src,int n)
@@ -687,7 +687,7 @@ int main() {
 o/p : dsdklsjfd
 dfjslkdsd
 ```
-## bit swapping in c
+### bit swapping in c
 ``` c
 #include <stdio.h>
 #include <stdint.h>
@@ -724,7 +724,7 @@ output :
 	swap_bit2 :0
 	20500ae 
 ```
-## bit swapping in C++ cog tech ser
+### bit swapping in C++ cog tech ser
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -788,6 +788,7 @@ int main()
 }
 
 ```
+### reverse the given string
 ```c
 // reverse the given string
 // Online C compiler to run C program online
