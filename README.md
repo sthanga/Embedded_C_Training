@@ -1042,5 +1042,53 @@ int main() {
 
     // output is 1001010101
     
+```
+### to find the machine is 64 or 32 bit
+```c
+// to find the machine is 64 or 32 bit
 
+#include <stdio.h>
+
+int main() {
+    if (sizeof(void*) == 8) {
+        printf("64-bit machine\n");
+    } else if (sizeof(void*) == 4) {
+        printf("32-bit machine\n");
+    } else {
+        printf("Unknown architecture\n");
+    }
+    return 0;
+}
+
+// case 2:
+
+#include <stdio.h>
+
+int main() {
+#if defined(__x86_64__) || defined(_M_X64) || defined(__aarch64__) || defined(__ppc64__)
+    printf("64-bit machine\n");
+#elif defined(__i386__) || defined(_M_IX86) || defined(__arm__) || defined(__ppc__)
+    printf("32-bit machine\n");
+#else
+    printf("Unknown architecture\n");
+#endif
+    return 0;
+}
+
+case 3:
+//Checking sizeof(long) or sizeof(size_t)
+
+#include <stdio.h>
+
+int main() {
+    printf("Size of long: %lu bytes\n", sizeof(long));
+    printf("Size of size_t: %lu bytes\n", sizeof(size_t));
+
+    if (sizeof(long) == 8) {
+        printf("64-bit machine\n");
+    } else {
+        printf("32-bit machine\n");
+    }
+    return 0;
+}
 ```
