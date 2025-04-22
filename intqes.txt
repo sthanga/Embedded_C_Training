@@ -1,4 +1,4 @@
-07/02/2024 
+### 07/02/2024 
 max-lnr qstn
   1. Asked bit swapping like get a interger number then convert into binary then all odd digit goes to even digit and even 
   digit goes to odd places; Ans one right shift;
@@ -13,7 +13,8 @@ max-lnr qstn
 spinlock - to fetch the data from the shared resource through locking mechanism
 that is spin lock
 
-dead lock  - to fetch the 
+### dead lock  - to fetch the 
+``  bash
 **†*************†**†****************"
 Hear constant pointer and pointer to constant 
 
@@ -29,7 +30,7 @@ int const * a const;
 
 *******************************"***********"
 
-
+```
 ``` c
 
 #include <stdio.h>
