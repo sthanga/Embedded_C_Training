@@ -28,7 +28,9 @@ int * const a;
 int const * a const;
 
 *******************************"***********"
-```bash
+
+
+``` c
 // pointer assignment and address of the variable
 #include <stdio.h>
 
@@ -45,4 +47,5 @@ output
 pointer address : 0x7ffe5ef9d80c
 pointer address : 0x7ffe5ef9d80c
 pointer address : 0x7ffe5ef9d810
+
 ```
