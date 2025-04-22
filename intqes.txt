@@ -28,7 +28,7 @@ int * const a;
 int const * a const;
 
 *******************************"***********"
-``` c
+```c
 // pointer assignment and address of the variable
 #include <stdio.h>
 
