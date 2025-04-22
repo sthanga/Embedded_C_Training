@@ -31,9 +31,9 @@ int const * a const;
 
 
 ``` c
-// pointer assignment and address of the variable
-#include <stdio.h>
 
+#include <stdio.h>
+// pointer assignment and address of the variable
 int main()
 {
     int a =10;
