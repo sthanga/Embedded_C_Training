@@ -1186,3 +1186,45 @@ int main() {
 	    return 0;
 	}
 ```
+### c pthread_t
+```
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+
+void* thread_func1(void* arg) {
+    while (1) {
+        printf("Thread 1 running\n");
+        sleep(1);
+    }
+    return NULL;
+}
+
+void* thread_func2(void* arg) {
+    while (1) {
+        printf("Thread 2 running\n");
+        sleep(2);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t t1, t2;
+
+    // Create both threads
+    pthread_create(&t1, NULL, thread_func1, NULL);
+    pthread_create(&t2, NULL, thread_func2, NULL);
+
+    // Optional: if you want main to wait for them later
+    // pthread_join(t1, NULL);
+    // pthread_join(t2, NULL);
+
+    // Instead, keep main alive so threads keep running
+    while (1) {
+        printf("Main thread doing something...\n");
+        sleep(3);
+    }
+
+    return 0;
+}
+```
