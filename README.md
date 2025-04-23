@@ -989,9 +989,8 @@ int main() {
 
 ```
 
-
+#### To print the duplicate is present in the array;
 ```c
-
 #include <stdio.h>
 #define MAX 100  // Adjust according to input range
 
@@ -1016,6 +1015,70 @@ int main() {
     return 0;
 }
 
+
+```
+#### array print dulicate, max repeated, remover the duplicate, assign with same array
+``` c
+#include <stdio.h>
+#define MAX 100  // Adjust if input range is larger
+
+// Function to process array
+void analyze_array(int arr[], int *size) {
+    int hash[MAX] = {0};
+    int max_count = 0;
+    int max_element = -1;
+
+    printf("Duplicate elements: ");
+    for (int i = 0; i < *size; i++) {
+        hash[arr[i]]++;
+        if (hash[arr[i]] == 2) {
+            printf("%d ", arr[i]);
+        }
+        if (hash[arr[i]] > max_count) {
+            max_count = hash[arr[i]];
+            max_element = arr[i];
+        }
+    }
+    printf("\n");
+
+    printf("Element with max frequency: %d (repeated %d times)\n", max_element, max_count);
+
+    // Modify the array to remove duplicates
+    int printed[MAX] = {0};
+    int new_index = 0;
+
+    for (int i = 0; i < *size; i++) {
+        if (!printed[arr[i]]) {
+            arr[new_index++] = arr[i];
+            printed[arr[i]] = 1;
+        }
+    }
+
+    *size = new_index;
+
+    // Print the modified array without duplicates
+    printf("Array without duplicates: ");
+    for (int i = 0; i < *size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {1, 3, 4, 2, 5, 3, 6, 2, 3, 2};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    analyze_array(arr, &size);
+
+    // Optional: use the modified array
+    printf("Modified original array (in main): ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
 
 ```
 
