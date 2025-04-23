@@ -1156,3 +1156,33 @@ int main() {
     return 0;
 }
 ```
+### string of the word in a senstense reverse
+``` c
+	#include <stdio.h>
+	#include <string.h>
+	
+	#define MAX_WORDS 100
+	#define MAX_LENGTH 100
+	
+	int main() {
+	    char str[] = "hi hello thanga pla";
+	    char *words[MAX_WORDS];
+	    int count = 0;
+	
+	    // Tokenize the string into words
+	    char *token = strtok(str, " ");
+	    while (token != NULL && count < MAX_WORDS) {
+	        words[count++] = token;
+	        token = strtok(NULL, " ");
+	    }
+	
+	    // Print words in reverse order
+	    for (int i = count - 1; i >= 0; i--) {
+	        printf("%s", words[i]);
+	        if (i > 0) printf(" ");
+	    }
+	    printf("\n");
+	
+	    return 0;
+	}
+```
