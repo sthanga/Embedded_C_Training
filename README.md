@@ -1187,7 +1187,7 @@ int main() {
 	}
 ```
 ### c pthread_t
-```
+``` c
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
@@ -1227,4 +1227,37 @@ int main() {
 
     return 0;
 }
+```
+### first letter has to take capitalize
+```c
+#include <stdio.h>
+#include <string.h>
+
+//#define Max 50
+
+int main()
+{
+    char a ='a';
+    char ac = 'A';
+    printf("%d-%d = %d\n",a,ac ,(a-ac));
+
+    char str[] = "hello today is wenesday";
+    int flag =0;
+    int size = sizeof(str)/sizeof(str[0]);
+    for (int i=0; i<size;i++)
+    {
+        if (i==0 || flag ==1)
+        {
+            str[i]= str[i]-32;
+            flag=0;
+        }
+        if (str[i] == ' ')
+        {
+            flag=1;
+        }
+    }
+    printf("%s", str);
+    return 0;
+}
+
 ```
