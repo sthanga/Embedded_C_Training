@@ -37,11 +37,13 @@ int const * a const;
 
 int main()
 {
-    int a =10;
-    int*p = &a;
+    int a =10;   // const int a =10 ;
+    int*p = &a;  // const int *p = &a;   it is possible in C but c will not const variable to  const pointer variable assignment
+
     printf("pointer address : %p\n", &a);
     printf("pointer address : %p\n", p);
     printf("pointer address : %p\n", &p);
+
     return 0;
 }
 output
