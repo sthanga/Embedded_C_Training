@@ -1261,3 +1261,26 @@ int main()
 }
 
 ```
+# Reverse the number like 12345 to 54321
+``` c
+// reverse the number like 12345 to 54321 ;
+
+#include <stdio.h>
+
+int main()
+{
+    int a = 12345;
+    int ret, rev=0;
+    while(a)
+    {
+        ret = a%10;
+        rev = rev*10 + ret;
+        // rev = rev * 10 + a % 10;
+        a= a/10;
+        
+    }
+    
+    printf("%d", rev);
+    return 0;
+}
+```
