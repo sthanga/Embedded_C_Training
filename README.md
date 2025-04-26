@@ -1261,7 +1261,7 @@ int main()
 }
 
 ```
-# Reverse the number like 12345 to 54321
+## Reverse the number like 12345 to 54321
 ``` c
 // reverse the number like 12345 to 54321 ;
 
@@ -1284,3 +1284,22 @@ int main()
     return 0;
 }
 ```
+## Recursion for factrial part
+``` c
+#include <stdio.h>
+int facto(int n)
+{
+     if (n==0)   // recurtion stop condition
+     {
+         return 1;
+     }
+     return n*facto(n-1);  // this the recursion
+}
+
+int main() {
+    int n=5;
+    printf("%d", facto(n));
+    return 0;
+}
+```
+
