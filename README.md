@@ -1,4 +1,4 @@
-# C Interview questions and answers
+# C Int Training = Important memorable of C coding
 
  
 ## Questions On Storage Class Specifier
