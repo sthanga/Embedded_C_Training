@@ -1302,4 +1302,20 @@ int main() {
     return 0;
 }
 ```
+## Armstrong number or not.
+``` c
+
+int main()
+{
+    struct InchFeet arr[]
+        = { { 11, 5.1 }, { 13, 4.5 }, { 6, 8.1 } };
+
+    int N = sizeof(arr) / sizeof(arr[0]);
+
+    findSum(arr, N);
+
+    return 0;
+}
+```
+
 
