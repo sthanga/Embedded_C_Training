@@ -1346,6 +1346,8 @@ int main()
     return 0;
 }
 ```
+### void pointer
+
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -1372,4 +1374,4 @@ int main()
 }
 
 ```
-
+### if (strncmp(argv[0], "time", 4) == 0)  
