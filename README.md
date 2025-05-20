@@ -1374,4 +1374,4 @@ int main()
 }
 
 ```
-### if (strncmp(argv[0], "time", 4) == 0)  
+### if (strncmp(argv[0], "time", 4) == 0)  // string compare time o
