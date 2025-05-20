@@ -1156,6 +1156,35 @@ int main() {
     return 0;
 }
 ```
+
+
+``` c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h> 
+
+struct my_request {
+    int a;
+    char b[10];
+    void *ptr;
+};
+
+int main()
+{
+    struct my_request req;
+    memset(&req, 0, sizeof(req));
+    req.ptr = (int*)malloc(sizeof(int));
+    //req.ptr = (char*)malloc(sizeof(char));
+    //*req.ptr = 'a';   // it will not work;
+    // *(char *)(req.ptr) = 'a';
+    //printf("%p--- %x", (char *)(req.ptr), *(char *)(req.ptr));
+    *(int *)(req.ptr) = 100;
+    printf("%x -- %x -- %p--- %x", req.a, req.b[0],(int *)(req.ptr), *(int *)(req.ptr));
+    return 0;
+}
+### else if (strncmp(argv[0], "time", 4) //string compare of 4 th word and time and argv[0] ;
+
+```
 ### string of the word in a senstense reverse
 ``` c
 	#include <stdio.h>
