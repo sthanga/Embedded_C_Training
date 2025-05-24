@@ -1374,4 +1374,20 @@ int main()
 }
 
 ```
-### if (strncmp(argv[0], "time", 4) == 0)  // string compare time o
+###  if (strncmp(argv[0], "time", 4) == 0)  // string compare time
+
+### fprintf(stderr, "Usage: %s sensornumber\n", argv[0]);
+
+``` bash
+
+fprintf() is a function that prints formatted text.
+
+stderr is the file stream representing the error output.
+
+"Usage: %s sensornumber\n" is the format string.
+
+argv[0] is the name of the program (usually the command used to run it).
+
+Usage: ./myprogram sensornumber
+
+```
