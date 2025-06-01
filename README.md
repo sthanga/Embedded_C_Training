@@ -177,6 +177,30 @@ Memory-mapped peripheral registers
 Global variables modified by an interrupt service routine
 Global variables within a multi-threaded application
 
+```bash
+The **volatile** keyword in C (and C++) is used to tell the compiler that a variable's value can change at any time,
+outside the control of the current code — for example, due to:
+Hardware (e.g., GPIO, memory-mapped registers)
+Interrupt Service Routines (ISRs)
+Multithreading or shared memory
+
+# Memory-mapped I/O registers:
+volatile uint32_t *GPIO_DATA = (uint32_t *)0x40025038;
+*GPIO_DATA = 0x01;
+Flaged updated by ISR
+
+volatile int button_pressed = 0;
+void ISR() {
+    button_pressed = 1;
+}
+int main() {
+    while (!button_pressed);  // Without volatile, compiler might optimize this loop away
+}
+Shared variables in multithreading:
+volatile int done = 0;
+
+```
+
 ### 9. What does keyword const means?
  * The const qualifier explicitly declares a data object as something that cannot be changed. Its value is set at initialization. You cannot use const data objects in expressions requiring a modifiable lvalue. For example, a const data object cannot appear on the lefthand side of an assignment statement
 int const volatile var
