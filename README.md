@@ -64,6 +64,107 @@
 	Memory-mapped I/O	⚠️ Mixed		Hardware Dependent	Peripheral control
 	Virtual Memory		❌			Slow (Disk)		Swap area in OS
 ```
+## Register memory
+In C or C++, you **can’t directly control CPU registers** like `R0`, `R1`, etc., from standard code — the **compiler handles that automatically** for optimization. However, you can **influence** or **hint** usage, and in **embedded systems**, you can also **access peripheral registers** via **memory-mapped I/O**.
+
+Let’s cover both cases:
+
+---
+
+## 🧠 1. **Using CPU Registers (Implicitly)**
+
+### ✅ Example in C
+
+```c
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+The compiler will use CPU registers to hold `a` and `b` during the addition. On an **ARM Cortex-M**, it might compile to:
+
+```assembly
+MOV R0, a
+MOV R1, b
+ADD R0, R0, R1  ; result in R0
+```
+
+> You don’t need to do anything — the compiler handles register usage for fast execution.
+
+---
+
+## ⚠️ 2. **Explicit Control (Advanced)**
+
+### 🔧 Using `register` keyword (Hint only)
+
+```c
+void example() {
+    register int x = 5;  // Suggests storing x in a CPU register
+    x++;
+}
+```
+
+* Modern compilers **ignore `register`** because they already optimize better than a human can.
+* You **can’t take the address** of a `register` variable (`&x` is not allowed).
+
+---
+
+## 🧭 3. **Accessing Hardware Registers (Embedded C)**
+
+In embedded programming, **registers of peripherals** (e.g., GPIO, UART) are accessed via fixed **memory addresses** — this is known as **memory-mapped I/O**.
+
+### ✅ Example: Accessing GPIO register (STM32-like)
+
+```c
+#define GPIOA_ODR (*(volatile uint32_t *)0x48000014)
+
+int main() {
+    GPIOA_ODR |= (1 << 5);  // Set GPIOA pin 5 high
+    return 0;
+}
+```
+
+* This is **not a CPU register**, but a **hardware register**.
+* `volatile` ensures the compiler **does not optimize away** access to this address.
+* Used commonly in bare-metal firmware or RTOS-based systems.
+
+---
+
+## 🚫 Direct CPU Register Access in C?
+
+If you really want to access CPU registers directly (e.g., special registers like control/status registers), you must:
+
+* Use **assembly (`asm`) inline**
+* Or use **intrinsics** (compiler-specific)
+
+### Example: Inline Assembly (GCC)
+
+```c
+int read_psr() {
+    int psr;
+    __asm__("MRS %0, APSR" : "=r" (psr));
+    return psr;
+}
+```
+
+> This reads the Program Status Register on ARM Cortex-M.
+
+---
+
+## ✅ Summary
+
+| Goal                                 | How to Do It                                 |
+| ------------------------------------ | -------------------------------------------- |
+| Use CPU registers                    | Write efficient C code — compiler handles it |
+| Suggest CPU register usage           | Use `register` keyword (rarely useful now)   |
+| Access hardware peripheral registers | Use pointer to memory-mapped addresses       |
+| Access CPU system registers          | Use inline assembly or intrinsics            |
+
+---
+
+Would you like to see register usage in **compiled assembly** for one of your C functions? I can generate it.
+
+
 ## Questions On Storage Class Specifier
 
 ### 1. What are storage class specifier?
