@@ -177,7 +177,7 @@ Memory-mapped peripheral registers
 Global variables modified by an interrupt service routine
 Global variables within a multi-threaded application
 
-```bash
+``` bash
 The **volatile** keyword in C (and C++) is used to tell the compiler that a variable's value can change at any time,
 outside the control of the current code — for example, due to:
 Hardware (e.g., GPIO, memory-mapped registers)
@@ -199,6 +199,16 @@ int main() {
 Shared variables in multithreading:
 volatile int done = 0;
 
+Note: When the program executed the volatile varible is storing into ram. When that varaiable called from program
+it reads from that memory instead of like other variable.
+
+Example:
+Normal execution:
+	int flag = 0;
+	while (!flag);  // Compiler may optimize this into an infinite loop (if it assumes 'flag' never changes)
+Volatile Execution:
+	volatile int flag = 0;
+	while (!flag);  // Compiler will check memory each time
 ```
 
 ### 9. What does keyword const means?
