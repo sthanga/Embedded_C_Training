@@ -102,6 +102,25 @@ void example() {
     register int x = 5;  // Suggests storing x in a CPU register
     x++;
 }
+**************************************************
+register int a = 5;
+int *p = &a ;
+
+compiler show error:
+volati2.c: In function ‘main’:
+volati2.c:38:5: error: address of register variable ‘a’ requested
+   38 |     int *p = &a;
+      |     ^~~
+*************************************************
+register int a = 5;
+printf("%p",&a);
+
+compiler show error:
+volati2.c: In function ‘main’:
+volati2.c:38:5: error: address of register variable ‘a’ requested
+   38 |     printf("%p",&a);
+      |     ^~~~~~
+***************************************************
 ```
 
 * Modern compilers **ignore `register`** because they already optimize better than a human can.
