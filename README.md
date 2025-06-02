@@ -1,6 +1,69 @@
 # C Int Training = Important memorable of C coding
 
- 
+## Types of Memory
+### In embedded systems and general computing, memory is categorized based on how it's used, accessed, stored, and retained. Here's a breakdown of the main types of memory
+
+``` bash
+
+🔹 1. RAM (Random Access Memory)
+	Volatile: Loses data when power is off.
+	Fast and used for temporary storage during program execution.
+	Types:
+	Type	Use Case	Example
+	SRAM (Static RAM)	CPU registers, small fast buffers	Used inside microcontrollers (e.g., stack, variables)
+	DRAM (Dynamic RAM)	Main system RAM in computers	DDR3, DDR4 in PCs
+
+🔹 2. ROM (Read-Only Memory)
+	Non-volatile: Retains data after power off.
+	
+	Stores firmware or boot code.
+	
+	Types:
+	Type	Description
+	ROM	Pre-programmed at factory
+	PROM	Programmable once after manufacture
+	EPROM	Erasable with UV light
+	EEPROM	Electrically erasable and writable
+	Flash	Fast, common EEPROM variant
+
+🔹 3. Flash Memory
+	Non-volatile, reprogrammable.
+	Common in microcontrollers to store code and constants.
+	Also used in SD cards, SSDs.
+	🧠 Example: In STM32, the program is stored in internal Flash memory.
+
+🔹 4. Cache Memory
+	Small, fast memory inside CPU.
+	Temporarily stores frequently used data or instructions.
+	Types: L1, L2, L3 (based on hierarchy).
+
+🔹 5. Registers
+	Tiny memory units inside the CPU.
+	Fastest memory.
+	Used for immediate operations, like addition, branching.
+
+🔹 6. Virtual Memory (In OS like Linux)
+	Not a real memory type, but a technique.
+	Maps memory to disk (swap space) when RAM is full.
+	Enables large program support.
+
+🔹 7. Memory-Mapped I/O
+	Peripherals mapped into addressable memory space.
+	Accessed using pointers to fixed addresses.
+	Requires volatile access in C.
+
+🧠 Summary Table:
+	Memory Type		Volatile		Speed			Use Case
+	Registers		✅			🔥 Fastest		CPU instructions
+	Cache (L1/L2/L3)	✅			🔥🔥			CPU performance
+	SRAM			✅			🔥			MCU stack, global vars
+	DRAM			✅			Fast			Main RAM (PCs)
+	ROM/EPROM		❌			Slow			Fixed firmware
+	EEPROM			❌			Medium			Config, calibration data
+	Flash			❌			Medium			Program storage
+	Memory-mapped I/O	⚠️ Mixed		Hardware Dependent	Peripheral control
+	Virtual Memory		❌			Slow (Disk)		Swap area in OS
+```
 ## Questions On Storage Class Specifier
 
 ### 1. What are storage class specifier?
