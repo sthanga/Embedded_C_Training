@@ -1608,3 +1608,110 @@ argv[0] is the name of the program (usually the command used to run it).
 Usage: ./myprogram sensornumber
 
 ```
+## advanced Pointer 
+```c
+void fun(int *p) 
+{ 
+  int q = 10; 
+  p = &q; 
+}     
+  
+int main() 
+{ 
+  int r = 20; 
+  int *p = &r; 
+  fun(p); //here assigned pointer value to passing parameter. it is not getting back of any value.
+  printf("%d", *p); 
+  return 0; 
+}
+a:10  b:20  c: compiler error d: runtime error
+But the o/p is 20 only.
+/*
+Inside fun(), q is a copy of the pointer p. So if we change q to point something else then p remains uneffected.
+If we want to change a local pointer of one function inside another function, then we must pass pointer to the pointer.
+By passing the pointer to the pointer, we can change pointer to point to something else. See the following program as an example.
+*/
+void fun(int **pptr) // pointer to pointer
+{
+  static int q = 10;
+  *pptr = &q;     
+}
+
+int main()
+{
+  int r = 20;
+  int *p = &r;
+  fun(&p);    // reference send;
+  printf("%d", *p);
+  return 0;
+}
+/*
+here o/p is : 10 
+In the above example, the function fun() expects a double pointer (pointer to a pointer to an integer).
+Fun() modifies the value at address pptr.  The value at address pptr is pointer p as we pass address of p to fun().
+In fun(), value at pptr is changed to address of q.  Therefore, pointer p of main() is changed to point to a new variable q.
+Also, note that the program won’t cause any out of scope problem because q is a static variable.
+Static variables exist in memory even after functions return.
+For an auto variable, we might have seen some unexpected output because auto variable may not exist in memory after functions return.
+*/
+```
+### 2d pointer array
+```c
+#include <stdio.h>
+
+#define R 2
+#define C 3
+
+int main()
+{
+    int matrix[R][C] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    int (*p)[R][C] = &matrix;
+
+    // Accessing elements using pointer
+    for (int i = 0; i < R; i++)
+    {
+        for (int j = 0; j < C; j++)
+        {
+            printf("%d ", (*p)[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+// one more example 
+
+#include <stdio.h>
+
+#define R 10
+#define C 20
+
+int main()
+{
+   int (*p)[R][C];   
+   printf("%ld",  sizeof(*p));   // return 800
+   getchar();
+   return 0;
+}
+
+/*
+int *p[R][C];  	// p is a 2D array (of size [R][C]) of pointers to int.
+               	// Array of int pointers (e.g. each row/column points elsewhere)
+		// Each p[i][j] points to a different int (can be anywhere in memory).
+
+int (*p)[R][C];  // p is a pointer to a 2D array of size [R][C] of int.
+		//  Pointer to a real 2D array
+		//  A contiguous 2D array in memory, and p points to the whole block.
+*/
+| Situation                                     | Use               |
+| --------------------------------------------- | ----------------- |
+| Each element points to different `int` values | `int *p[R][C];`   |
+| You want to pass or manipulate a 2D array     | `int (*p)[R][C];` |
+
+```
+
