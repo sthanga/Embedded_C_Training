@@ -1714,4 +1714,32 @@ int (*p)[R][C];  // p is a pointer to a 2D array of size [R][C] of int.
 | You want to pass or manipulate a 2D array     | `int (*p)[R][C];` |
 
 ```
+### Remove the special character in  the string 
+
+``` c
+#include <stdio.h>
+#include <string.h>
+void stringValue(char *str)
+{
+    int i, j = 0;
+    for(i=0; str[i] != '\0'; i++)
+    {
+        if (str[i]>='a' && str[i]<='z' || str[i]>='A' && str[i]<='Z')
+        {
+           // printf("%c",get[i]);
+           str[j++]=str[i];
+        }
+    }
+    str[j] = '\0';
+}
+
+int main()
+{
+    char str[] ="&Hel&&*lo*(Worl*d";
+    printf("%s \n", str);
+    stringValue(str);
+    printf("%s \n", str);
+    return 0;
+}
+```
 
