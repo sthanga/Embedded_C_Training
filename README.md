@@ -1617,6 +1617,28 @@ int main()
     return 0;
 }
 
+normally
+/********************************************************************
+void *ptr;           // Generic pointer
+int a = 10;
+ptr = &a;            // Assign address of int to void pointer
+
+printf("%d\n", *(int *)ptr);   // Cast to int* before dereferencing
+
+//also method call
+void printValue(void *data, char type)
+{
+    if (type == 'i') {
+        printf("Integer: %d\n", *(int *)data);   // here for print the data as interger
+    } else if (type == 'f') { 
+        printf("Float: %f\n", *(float *)data);   // here for print the data as float
+    } else if (type == 'c') {
+        printf("Char: %c\n", *(char *)data);   // here for print the data as char
+    }
+}
+
+
+********************************************************************/
 ```
 ###  if (strncmp(argv[0], "time", 4) == 0)  // string compare time
 
