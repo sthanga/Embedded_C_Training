@@ -1058,6 +1058,18 @@ void reverseof(char str[])
     printf("length of str : %d \n", len);
 
 here passsing You're passing char *str[], which is actually interpreted as char **str (pointer to pointer).
+
+this way also fine
+void reverseof(char *str)
+{
+    int len = strlen(str);
+    for (int i = 0; i < len / 2; i++)
+    {
+        char temp = str[i];
+        str[i] = str[len - 1 - i];
+        str[len - 1 - i] = temp;
+    }
+}
 ```
 ```c
 // C program for implementation of selection sort
