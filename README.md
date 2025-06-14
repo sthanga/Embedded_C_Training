@@ -1043,6 +1043,21 @@ int main() {
     return 0;
 }
 
+
+You're passing char *str[], which is actually interpreted as char **str (pointer to pointer).
+
+But in main() you are passing char str[] = " Thangaraj";, which is a char* (pointer to char), not an array of pointers.
+    char str[] = " Thangaraj aks";
+    printf("%s \n", str);
+    reverseof(str);
+    printf("%s \n", str);
+
+void reverseof(char str[])
+{
+    int len = strlen(str);
+    printf("length of str : %d \n", len);
+
+here passsing You're passing char *str[], which is actually interpreted as char **str (pointer to pointer).
 ```
 ```c
 // C program for implementation of selection sort
