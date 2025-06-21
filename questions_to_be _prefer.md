@@ -1,6 +1,6 @@
-#List of questions to be prefered for interview:
+# List of questions to be prefered for interview:
 
-#From Strings:
+# From Strings:
 ## String Polidrom
 ## String reverse
 ## String caps
@@ -10,7 +10,7 @@
 ## String no.of Repeated given word/chars
 ## String Manupulating list of keywords (like strlen, strcat etc)
 
-#From bit sets:
+# From bit sets:
 ## Set the bit
 ## reset the bit
 ## toggle the bit
@@ -19,7 +19,7 @@
 ## find the no of one's in the number contains bit
 # find the no of Zero's in the number contains bit
 
-#From others:
+# From others:
 ## Number Pilidrom
 ## Print the array
 ## print the sorted array
