@@ -37,6 +37,35 @@ int main()
 }
 ```
 ## String reverse
+```c
+#include <stdio.h>
+#include <string.h>
+
+void main ()
+{
+    char name[] ="haodbsdb";
+    printf("Actual ::  = %s \n", name);
+    int len = strlen(name);
+    printf("len %d \n", len);
+    for(int i=0; i<len/2; i++)
+    {
+        char temp = name [i];
+        name[i]=name[len-i-1];
+        name[len-i-1] = temp;
+    }
+    printf("Reverse ::  = %s \n", name);
+}
+/*
+output:
+
+Actual ::  = haodbsdb 
+len 8 
+Reverse ::  = bdsbdoah
+
+*/
+```
+## String Reverse word
+
 ## String caps
 ## String lowers
 ## String first letter caps
