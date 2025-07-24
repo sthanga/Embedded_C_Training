@@ -1,7 +1,41 @@
 # List of questions to be prefered for interview:
 
 # From Strings:
+### strings are used store the array opf characters 
 ## String Polidrom
+```c
+#include <stdio.h>
+#include <string.h>
+
+void reverseStr(char name[])
+{
+    int len = strlen(name);
+    printf("len %d \n", len);
+    for(int i=0; i<len/2; i++)
+    {
+        char temp = name [i];
+        name[i]=name[len-i-1];
+        name[len-i-1] = temp;
+    }
+    printf("%s \n", name);
+}
+
+int main()
+{
+    char name[]="h22h" ;
+    char str[100];
+    strcpy(str, name);
+    printf("name : %s \n", name);
+    printf("str :%s \n", str);
+    reverseStr(str);
+    if (strcmp(name, str) == 0)
+        printf("The string is palindrom");
+    else
+        printf("It is not a palindrom");
+
+    return 0;
+}
+```
 ## String reverse
 ## String caps
 ## String lowers
