@@ -65,7 +65,48 @@ Reverse ::  = bdsbdoah
 */
 ```
 ## String Reverse word
+``` c
+#include <stdio.h>
+#include <string.h>
 
+// Helper function to reverse part of a string
+void reverseRange(char *str, int start, int end)
+{
+    while (start < end) {
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+}
+void reword(char *input)
+{
+    int len = strlen(input);
+    // Step 1: Reverse the entire string
+    reverseRange(input, 0, len - 1);
+    // Step 2: Reverse each word back in-place
+    int start = 0;
+    for (int i = 0; i <= len; i++) {
+        if (input[i] == ' ' || input[i] == '\0') {
+            reverseRange(input, start, i - 1);
+            start = i + 1;
+        }
+    }
+}
+int main()
+{
+    char input[] = "I am Thangaraj is good";
+    reword(input);
+    printf("%s\n", input);  // Output: good is Thangaraj am I
+    return 0;
+}
+
+/*
+good is Thangaraj am I
+*/
+
+```
 ## String caps
 ## String lowers
 ## String first letter caps
@@ -90,8 +131,8 @@ Reverse ::  = bdsbdoah
 ## find the max repated/duplicate of the array
 ## find the min no of array
 ## find the max no of array
-## Binary search
-## linear search
+## Binary search -ok
+## linear search ok
 ## Sort algrithms of Merge
 ## Sort algrithms of selections
 ## Sort algrithms of bubble
