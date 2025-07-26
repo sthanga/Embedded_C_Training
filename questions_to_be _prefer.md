@@ -180,6 +180,10 @@ int main()
     printf("%s \n", str);
     return 0;
 }
+/*
+output:
+Hi I Am Aks Thangaraj 
+*/
 ```
 ## String duplicate find and max repeated letter/word
 
