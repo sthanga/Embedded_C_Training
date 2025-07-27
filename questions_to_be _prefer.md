@@ -185,15 +185,138 @@ output:
 Hi I Am Aks Thangaraj 
 */
 ```
-## String duplicate find and max repeated letter/word
+## String duplicate find and max & repeated letter
+```c
+#include <stdio.h>
+#define MAX 126
 
-## String no.of Repeated given word/chars
+void mostRepeatedChar(const char *str)
+{
+    int count[MAX]={0};
+    int max =0;
+    char result;
+    for(int i=0; str[i]; i++)
+    {
+        count[(unsigned char)str[i]]++;
+        
+        if (count[(unsigned char)str[i]] > max && str[i] != ' ')
+        {
+            result=str[i];
+            max= count[(unsigned char)str[i]];
+        }
+    }
+    
+    printf("The Max Count :: %d, Char:: %c", max , result );
+}
+
+int main()
+{
+    char str[] ="banana apple mango apple banana mango banana";  
+    char a[MAX]= {'a'};  // a[0] is a and others are allocate with null;
+    int count[MAX] = {10};  // count[0] is 10 and other are will 0;
+    mostRepeatedChar(str);
+}
+
+/*
+outputs:
+The Max Count :: 13, Char:: a
+*/
+```
+## String duplicate find and max repeated word
+``` c
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_WORDS 100
+#define WORD_LEN 50
+
+void mostRepeatedWord(const char* input) {
+    char str[1000];
+    strcpy(str, input);
+    
+    char* words[MAX_WORDS];
+    int count[MAX_WORDS] = {0};
+    int total = 0;
+    
+    char* token = strtok(str, " ");
+    while (token) {
+        int found = 0;
+        for (int i = 0; i < total; i++) {
+            if (strcmp(words[i], token) == 0) {
+                count[i]++;
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
+            words[total] = token;
+            count[total++] = 1;
+        }
+        token = strtok(NULL, " ");
+    }
+
+    int max = 0;
+    int maxIdx = 0;
+    for (int i = 0; i < total; i++) {
+        if (count[i] > max) {
+            max = count[i];
+            maxIdx = i;
+        }
+    }
+
+    printf("Most repeated word: '%s' (%d times)\n", words[maxIdx], max);
+}
+
+int main() {
+    const char* text = "banana apple mango apple banana mango banana";
+    mostRepeatedWord(text);
+    return 0;
+}
+
+```
 ## String Manupulating list of keywords (like strlen, strcat etc)
+``` bash
+From <string.h>, these are commonly used string-related functions (not keywords, but essential):
+
+| Function                   | Description                               |
+| -------------------------- | ----------------------------------------- |
+| `strlen(str)`              | Returns length of string (excluding `\0`) |
+| `strcpy(dest, src)`        | Copies string from `src` to `dest`        |
+| `strncpy(dest, src, n)`    | Copies first `n` characters               |
+| `strcat(dest, src)`        | Appends `src` to end of `dest`            |
+| `strcmp(s1, s2)`           | Compares two strings                      |
+| `strncmp(s1, s2, n)`       | Compares first `n` characters             |
+| `strchr(str, c)`           | Finds first occurrence of char `c`        |
+| `strstr(haystack, needle)` | Finds substring                           |
+| `strtok(str, delim)`       | Tokenizes string using delimiters         |
+| `memset(ptr, value, size)` | Sets memory (can be used for strings)     |
+| `memcpy(dest, src, n)`     | Copies `n` bytes                          |
+
+```
 
 # From bit sets:
-## Set the bit
-## reset the bit
-## toggle the bit
+
+## Set reset toggle the bit
+```c
+#include <stdio.h>
+
+int main() {
+    unsigned char x = 0b00000101;
+
+    // Set bit 2
+    x |= (1 << 2);
+
+    // Clear bit 0
+    x &= ~(1 << 0);
+
+    // Toggle bit 1
+    x ^= (1 << 1);
+
+    // Print result
+    printf("Result: %u\n", x);  // Output as decimal
+}
+
+```
 ## bit swaping
 ## reverse the bit
 ## find the no of one's in the number contains bit
