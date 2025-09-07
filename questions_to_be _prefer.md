@@ -64,6 +64,40 @@ Reverse ::  = bdsbdoah
 
 */
 ```
+##  strcpy, strcmp, strlen code
+```c
+// String length
+int my_strlen(const char str[]) {
+    int len = 0;
+    while (str[len] != '\0') {
+        len++;
+    }
+    return len;
+}
+
+// String copy
+void my_strcpy(char dest[], const char src[]) {
+    int i = 0;
+    while (src[i] != '\0') {
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0';  // add null terminator
+}
+
+// String compare
+int my_strcmp(const char str1[], const char str2[]) {
+    int i = 0;
+    while (str1[i] != '\0' && str2[i] != '\0') {
+        if (str1[i] != str2[i]) {
+            return (str1[i] - str2[i]); // difference in ASCII values
+        }
+        i++;
+    }
+    return (str1[i] - str2[i]); // also handles length difference
+}
+```
+
 ## String Reverse word
 ``` c
 #include <stdio.h>
