@@ -351,6 +351,61 @@ int main() {
 }
 
 ```
+## Interview Questions from eversan:
+```c
+// Given a 64-bit number, count how many unique nibbles are present.
+ 
+// Ex: Input: 0x1234567890ABCDEF output as 16
+ 
+// Ex: 0x1224567890ABCDEF output as 15
+
+
+#include <stdio.h>
+#include <stdint.h>
+
+void foundUniqeNipple(int arr[])
+{
+	int uniqueNo=16, temp=0;
+	
+	for(int i=0; i<16;i++)
+	{
+		temp=0;
+		for(int j=i; j<16; j++)
+		{
+			if (arr[i]==arr[j])
+				temp++;	
+		}
+        // printf("%d   ", temp);
+		if (temp >1)
+			uniqueNo--;
+	}
+	printf("no. of unique of nipples : %d", uniqueNo);
+} 
+ 
+ int main()
+ {
+ 	
+ 	uint64_t data = 0x1234567890ABCDEF;
+ 	int arr[16];
+ 	int nipple = 4;
+ 	for(int i=0; i<16; i++)
+ 	{
+ 		if (i==0)
+ 			arr[i]= data & 0x0F;
+ 		else {
+ 			arr[i]= data >> nipple & 0x0F;
+ 			nipple +=4;
+ 		}
+ 	}
+//  	for(int i=0;i<16; i++)
+//  	    printf("%x \t",arr[i]);
+ 	
+ 	foundUniqeNipple(arr);
+  	return 0;
+ }
+```
+
+
 ## bit swaping
 ## reverse the bit
 ## find the no of one's in the number contains bit
