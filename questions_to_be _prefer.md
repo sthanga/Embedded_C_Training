@@ -405,6 +405,7 @@ void foundUniqeNipple(int arr[])
  }
 ```
 ## Interview Questions from eversan:
+``` bash
 In a given number invert the lowest bit which is set, give a C function
 110110100 -> 110110000
 
@@ -464,7 +465,7 @@ int main()
   foundlargest(str);
   return 0;
 }
-
+```
 
 
 ## bit swaping
