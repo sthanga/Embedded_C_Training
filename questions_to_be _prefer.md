@@ -404,6 +404,67 @@ void foundUniqeNipple(int arr[])
   	return 0;
  }
 ```
+## Interview Questions from eversan:
+In a given number invert the lowest bit which is set, give a C function
+110110100 -> 110110000
+
+void invertset(int n)
+{
+	printf("given number : %x", n);
+  count =0;
+	for(int i=0; i<32; i++)
+  {
+  	if((n & (1 << count)) ==1)
+    {
+    	n= n^(1 << count)
+      break;
+    }
+    count ++;
+  }
+
+  printf("Invert set number : %x", n);
+}
+
+int main()
+{
+	int num = 0x12;
+  invertset(num);
+  return 0;
+}
+
+#include <stdio.h>
+
+void foundlargest(char str[])
+{
+  int len = strlen(str);
+  int maxlen =0, temp=0, loc=0 strl;
+  for (int i=0 ; i <len ; i++)
+  {
+  	if(str[i] = ' ')
+    {
+    	loc ++;
+      strl =i;
+      temp=0;   	
+    }
+    if (temp >maxlen)
+    	maxlen ++;
+    temp++;
+  }
+	for (int i=0 ; i <len ; i++)
+  {
+  	
+  }
+}
+
+
+
+int main()
+{
+	char str[100] = "hi, this world is very beautyful";
+  foundlargest(str);
+  return 0;
+}
+
 
 
 ## bit swaping
