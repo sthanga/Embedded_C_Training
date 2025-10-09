@@ -500,15 +500,30 @@ Here’s a curated list of **Google interview questions** specifically for the r
 ### 🔧 **Core Embedded Systems Questions**
 
 1. **What are the differences between a microcontroller and a microprocessor?**
-2. **Describe the boot process of an embedded system.**
-3. **How does interrupt handling work?**
-4. **What’s the difference between polling and interrupts?**
-5. **Explain memory-mapped I/O vs port-mapped I/O.**
-6. **What is a watchdog timer and how is it used?**
-7. **How do you reduce power consumption in an embedded system?**
-8. **Explain how DMA works. When would you use it?**
-9. **What is the difference between volatile and const keywords in C?**
-10. **How do you debug an embedded system with limited resources?**
+   ``` bash
+   | Feature                  | **Microcontroller (MCU)**                                                              | **Microprocessor (MPU)**                                               |
+| ------------------------ | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Definition**           | A *single-chip computer* with CPU, memory (RAM/ROM), and peripherals integrated.       | A *CPU only* — external memory, storage, and peripherals are required. |
+| **Components**           | CPU + RAM + Flash + Timers + GPIO + ADC + UART/SPI/I2C etc., all on one chip.          | CPU core (ALU, CU, registers) only — no built-in memory or I/O.        |
+| **Example Devices**      | PIC, AVR (ATmega328), ARM Cortex-M (STM32, ESP32, NXP LPC), MSP430                     | Intel i3/i5/i7, AMD Ryzen, ARM Cortex-A (Raspberry Pi, mobile SoCs)    |
+| **Memory**               | Small, built-in Flash (program) and SRAM (data).                                       | External RAM, ROM, and storage (e.g., DDR, SSD).                       |
+| **I/O Interfaces**       | Direct access to GPIO, ADC/DAC, PWM, UART, SPI, I2C.                                   | Interfaces through external chips or bridges (e.g., PCIe, USB).        |
+| **Operating System**     | Usually runs *bare-metal* or *RTOS* (e.g. FreeRTOS, Zephyr).                           | Runs *full OS* (e.g. Linux, Windows, Android).                         |
+| **Speed**                | Tens to hundreds of MHz.                                                               | Hundreds of MHz to several GHz.                                        |
+| **Power Consumption**    | Very low — ideal for battery/embedded systems.                                         | High — requires cooling and power management.                          |
+| **Cost**                 | Very cheap (a few cents to a few dollars).                                             | Expensive (several dollars to hundreds).                               |
+| **Application Examples** | IoT devices, washing machines, motor control, sensors, wearables, medical instruments. | Laptops, desktops, smartphones, servers, embedded Linux systems.       |
+
+   ```
+3. **Describe the boot process of an embedded system.**
+4. **How does interrupt handling work?**
+5. **What’s the difference between polling and interrupts?**
+6. **Explain memory-mapped I/O vs port-mapped I/O.**
+7. **What is a watchdog timer and how is it used?**
+8. **How do you reduce power consumption in an embedded system?**
+9. **Explain how DMA works. When would you use it?**
+10. **What is the difference between volatile and const keywords in C?**
+11. **How do you debug an embedded system with limited resources?**
 
 ---
 
