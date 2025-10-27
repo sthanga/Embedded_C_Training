@@ -1883,3 +1883,45 @@ patch -p1 < ~/Downloads/ipmi-device.patch
  
 
 ```
+
+
+
+
+``` cpp
+   28  find ./ -iname evb-ast2600.conf
+   29  find ./ -iname ast2600-default.conf
+   30  . setup ast2600-default
+   31  bitbake obmc-phosphor-image
+   	vim ~/.bashrc the add it at end of the file
+   32  export LC_ALL="en_IN.utf-8"
+
+sudo vi /etc/default/isc-dhcp-server
+   53  sudo apt install isc-dhcp-server -y
+   54  sudo vi /etc/default/isc-dhcp-server
+   55  vim /etc/dhcp/dhcpd.conf
+   56  sudo vim /etc/dhcp/dhcpd.conf
+   57  sudo systemctl start isc-dhcp-server
+   58  sudo systemctl enable isc-dhcp-server
+   59  sudo systemctl status isc-dhcp-server
+   60  vim /etc/dhcp/dhcpd.conf
+   61  sudo systemctl start isc-dhcp-server
+   62  sudo systemctl enable isc-dhcp-server
+   63  sudo systemctl status isc-dhcp-server
+   64  sudo nmtui
+   65  ping 
+   66  ifconfig
+   67  ip add show enp0s3
+   68  cat /var/lib/dhcp/dhcpd.leases
+   69  ip link show
+   70  ip add show 
+   71  ifconfig 
+   72  vim /etc/dhcp/dhcpd.conf
+   73  sudo vim /etc/dhcp/dhcpd.conf
+   74  cd /etc/dhcp/
+   75  ls
+   76  sudo vim dhcpd.conf
+   77  ifconfig
+
+
+
+```
