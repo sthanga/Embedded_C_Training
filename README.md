@@ -1792,3 +1792,94 @@ int main()
 }
 ```
 
+### git update patch
+
+``` c
+
+git add *
+git commit -m "phosphorSoftManager"
+git format-patch HEAD~1
+Then it will generate patch under this foder
+0001-phosphorSoftManager.patch
+```
+
+## https://bhanuprakasheagala.hashnode.dev/process-creation-in-linux
+## i2ctransfer -f -y 6 w16@0x21 0x01 0x02 0x03 0x04 0x12 0x13 0x14 0x16 0x33 0x64 0x71 0x21 0x22 0x02 0x03 0x04
+## i2ctransfer 6 wr 3@0x21 0x12 0x34 0x56
+## ipmievd -C 17 -H 192.168.1.53 -I lanplus -U root -P 0penBmc sel daemon pidfile=/var/run/ipmievd.pid
+
+
+``` cpp
+1.usb drivers installation and how many ways are there to install USB 
+2.dual video 
+3.graphics installation 
+4.directx 
+5.graphic cards and tools used 
+by burning tool for stress and stability ( ram,rom, 
+directly we can install bios/change in bios settings ( ifwi) 
+6.dediprog (flash cpld,ifwi) 
+ 
+7.dangling pointer 
+8.segmentation fault 
+9.file systems 
+10.deadlock 
+11.page table 
+12.function pointer and example to it 
+13.stack and queue and example 
+14.push and pop 
+15.zoombie process 
+16.critical section 
+17.semaphore and mutex 
+18.locking mechanism 
+19.recursive function and compare between functions 
+ 
+ 
+(Parikshit Shukla) 
+Introduction 
+Difference Between Class and structure 
+Difference between Struct and union 
+What is File-System 
+What is DMA 
+What are interrupts and its types 
+What is Page-Table 
+What is Deadlock 
+Essential conditions for deadlock 
+What is Cache memory 
+Size of Cache Memory 
+Real time scenario of cache memory 
+About microcontrollers, how many address spaces in 8051? 
+What are bitwise operators and its types 
+Why we use bitwise operators 
+What is dangling pointer 
+What is break statement in C 
+WAP TO SWAP TWO NUMBERS IN C 
+What is extern keyword, its scope and lifetime 
+Why we use algorithms in our program? 
+Explain System booting process 
+What is preprocessor, how to add another c file in a program 
+What is typedef 
+What is ternary operator 
+Static and Global variable difference 
+Difference between Single and double linked list 
+What is OpenGL 
+Why do we need IDE? 
+What is breakpoint 
+What is logfile 
+How to import libraries in Python? 
+WAP to find a number is even or odd in Python? 
+Difference between list and tuple 
+Difference between array and list 
+About Project 
+What is os.sep? 
+How to include library which is not present in directory in Python? 
+
+Kernel Driver Adds
+Add the Kconfig at respective folder the placing new drivers
+Add Makefile of the driver in the respective folder the placing new drivers
+ 
+arch/arm/boot/linux/config file adding that names TBT
+ 
+patch -p1 < ~/Downloads/ipmi-device.patch
+ 
+
+```
