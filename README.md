@@ -427,7 +427,43 @@ Here, type is the pointer's base type; it must be a valid C data type and var-na
 `char   *ch`     /* pointer to a character */
 
 The actual data type of the value of all pointers, whether integer, float, character, or otherwise, is the same, a long hexadecimal number that represents a memory address. The only difference between pointers of different data types is the data type of the variable or constant that the pointer points to.
+### what is Function Pointer:
+``` c
+/*
+	A pointer that stores the address of a function so you can call it dynamically.
+	i.e :Callback functions
+	A function pointer is a variable that stores the address of a function, so you can call the function indirectly through that variable
+	A pointer (holds an address), the address is the entry point of a function.
+*/
+#include <stdio.h>
+#include <stdlib.h>
+int add(int a, int b) {
+    return a + b;
+}
+    return a - b;
+}
+int (*operation)(int, int);
+operation = add;
+printf("%d\n", operation(5, 3));   // calls add(5, 3)
+operation = subtract;
+printf("%d\n", operation(5, 3));   // calls subtract(5, 3)
+// used in HAL and device drivers
+struct device_ops {
+    int (*init)(void);
+    int (*read)(int);
+    void (*write)(int, int);
+};
+// Assigning as
+struct device_ops uart_ops = {
+    .init = uart_init,
+    .read = uart_read,
+    .write = uart_write
+};
+// usage
+uart_ops.init();
+uart_ops.write(0x10, 0xFF);
 
+```
 ### 13. What is dangling pointer?
 
 A dangling pointer points to memory that has already been freed. The storage is no longer allocated. Trying to access it might cause a Segmentation fault.
