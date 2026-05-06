@@ -406,6 +406,244 @@ int const a;
 const int *a;
 int * const a;
 int const * a const;
+
+1. const int a;
+
+👉 Same as: int const a;
+
+Meaning:
+a is a constant integer
+Value cannot be modified after initialization
+Example:
+#include <stdio.h>
+
+int main() {
+    const int a = 10;
+    // a = 20;  // ❌ ERROR
+
+    printf("%d\n", a);
+    return 0;
+}
+
+2. int const a;
+
+👉 Exactly SAME as above
+
+Rule:
+
+const int == int const (no difference)
+
+
+
+const int a;z
+int const a;
+const int *a;
+int * const a;
+int const * a const;
+
+Give more details explain and example with o/p
+
+These are classic C/C++ const qualifier combinations—very important for interviews and embedded work. Let’s break each one clearly, then give examples + outputs so you fully understand behavior.
+
+🔹 1. const int a;
+👉 Same as: int const a;
+
+Meaning:
+a is a constant integer
+
+Value cannot be modified after initialization
+
+Example:
+#include <stdio.h>
+
+int main() {
+    const int a = 10;
+    // a = 20;  // ❌ ERROR
+
+    printf("%d\n", a);
+    return 0;
+}
+Output:
+10
+✔ You must initialize it
+✔ Cannot modify later
+
+🔹 2. int const a;
+👉 Exactly SAME as above
+
+Rule:
+const int == int const (no difference)
+
+
+🔹 3. const int *a;
+👉 Pointer to constant integer
+
+Meaning:
+Data is constant
+
+Pointer can change
+
+👉 You can change where pointer points, but NOT the value
+
+Example:
+#include <stdio.h>
+
+int main() {
+    int x = 10, y = 20;
+
+    const int *a = &x;
+
+    // *a = 30;   // ❌ ERROR (cannot modify value)
+    a = &y;       // ✅ OK (pointer can change)
+
+    printf("%d\n", *a);
+    return 0;
+}
+Output:
+20
+
+🔹 4. int * const a;
+👉 Constant pointer to integer
+
+Meaning:
+Pointer is constant
+
+Data can change
+
+👉 You cannot change pointer location
+👉 But can modify value
+
+Example:
+#include <stdio.h>
+
+int main() {
+    int x = 10, y = 20;
+
+    int * const a = &x;
+
+    *a = 30;     // ✅ OK (value can change)
+    // a = &y;   // ❌ ERROR (pointer cannot change)
+
+    printf("%d\n", x);
+    return 0;
+}
+
+const int a;z
+int const a;
+const int *a;
+int * const a;
+int const * a const;
+
+Give more details explain and example with o/p
+
+These are classic C/C++ const qualifier combinations—very important for interviews and embedded work. Let’s break each one clearly, then give examples + outputs so you fully understand behavior.
+
+🔹 1. const int a;
+👉 Same as: int const a;
+
+Meaning:
+a is a constant integer
+
+Value cannot be modified after initialization
+
+Example:
+#include <stdio.h>
+
+int main() {
+    const int a = 10;
+    // a = 20;  // ❌ ERROR
+
+    printf("%d\n", a);
+    return 0;
+}
+Output:
+10
+✔ You must initialize it
+✔ Cannot modify later
+
+🔹 2. int const a;
+👉 Exactly SAME as above
+
+Rule:
+const int == int const (no difference)
+
+🔹 3. const int *a;
+👉 Pointer to constant integer
+
+Meaning:
+Data is constant
+
+Pointer can change
+
+👉 You can change where pointer points, but NOT the value
+
+Example:
+#include <stdio.h>
+
+int main() {
+    int x = 10, y = 20;
+
+    const int *a = &x;
+
+    // *a = 30;   // ❌ ERROR (cannot modify value)
+    a = &y;       // ✅ OK (pointer can change)
+
+    printf("%d\n", *a);
+    return 0;
+}
+Output:
+20
+🔹 4. int * const a;
+👉 Constant pointer to integer
+
+Meaning:
+Pointer is constant
+
+Data can change
+
+👉 You cannot change pointer location
+👉 But can modify value
+
+Example:
+#include <stdio.h>
+
+int main() {
+    int x = 10, y = 20;
+
+    int * const a = &x;
+
+    *a = 30;     // ✅ OK (value can change)
+    // a = &y;   // ❌ ERROR (pointer cannot change)
+
+    printf("%d\n", x);
+    return 0;
+}
+Output:
+30
+🔹 5. int const * a const;
+👉 Constant pointer to constant data
+
+Meaning:
+Pointer cannot change ❌
+
+Data cannot change ❌
+
+Example:
+#include <stdio.h>
+
+int main() {
+    int x = 10;
+
+    int const * const a = &x;
+
+    // *a = 20;   // ❌ ERROR
+    // a = NULL;  // ❌ ERROR
+
+    printf("%d\n", *a);
+    return 0;
+}
+
+output: 10
 ```
 
 ### 11. Can we use const keyword with volatile variable?
