@@ -667,36 +667,75 @@ Here, type is the pointer's base type; it must be a valid C data type and var-na
 The actual data type of the value of all pointers, whether integer, float, character, or otherwise, is the same, a long hexadecimal number that represents a memory address. The only difference between pointers of different data types is the data type of the variable or constant that the pointer points to.
 ### what is Function Pointer:
 ``` c
-/*
-	A pointer that stores the address of a function so you can call it dynamically.
+/*****************************************************************************************
+	 
+	A pointer that stores the address of a function instead of the address of a variable, So you can call it dynamically.
+	Function name itself represents its address.
 	i.e :Callback functions
 	A function pointer is a variable that stores the address of a function, so you can call the function indirectly through that variable
 	A pointer (holds an address), the address is the entry point of a function.
-*/
+	It enables indirect function invocation, runtime selection of functionality, callback implementation, driver abstraction, event handling,
+	and object-oriented style programming in C
+
+*****What Happens in Memory?******
+	Compiled code goes into Text Segment (Code Segment).
+	+*-----------------+
+	| Text Segment *   |
+	| add()            | <-- addr*ss 0x401000
+	+------------------+
+	*------------------+
+	| Data Segment*    |
+	+------------------+
+	
+	+-----*------------+
+	| Heap            *|
+	+------------------+
+	
+	+---------*--------+
+	|*Stack            |
+	| fptr         *   | --->*0x401000
+	+------------------+
+	fptr stores the address of add().
+	When: f*tr(10,20); CPU jumps to address 0x401000.
+ues case
+	The function to execute is fixed at compile time.
+	The function can be chosen at runtime. This gives flexibility.
+	This is heavily used in:
+		Linux kernel
+		Device drivers
+		RTOS drivers
+		BSP layers
+		HAL layers
+*************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
-int add(int a, int b) {
-    return a + b;
-}
-    return a - b;
-}
+
+int add(int a, int b) { return a + b; }
+int subtract (int a, int b) { return a - b; }
+
 int (*operation)(int, int);
+
 operation = add;
 printf("%d\n", operation(5, 3));   // calls add(5, 3)
+
 operation = subtract;
 printf("%d\n", operation(5, 3));   // calls subtract(5, 3)
+
 // used in HAL and device drivers
 struct device_ops {
     int (*init)(void);
     int (*read)(int);
     void (*write)(int, int);
 };
+
 // Assigning as
 struct device_ops uart_ops = {
     .init = uart_init,
     .read = uart_read,
     .write = uart_write
 };
+
 // usage
 uart_ops.init();
 uart_ops.write(0x10, 0xFF);
@@ -2198,4 +2237,105 @@ sudo vi /etc/default/isc-dhcp-server
 
 
 
+```
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node* next;
+    struct node *prev;
+};
+
+struct node* newNode(int data)
+{
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    newnode->next =NULL;
+    newnode->prev=NULL;
+    newnode->data = data;
+    return newnode;
+}
+
+void createNode(struct node** head, int data)
+{
+    struct node* newnode=newNode(data);
+    //printf("newnode data %d",newnode->data);
+    
+    if (*head==NULL){
+        *head= newnode;
+        return;
+    }
+    struct node* temp =*head;
+    while(temp->next != NULL)
+    {
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    newnode->prev=temp;
+}
+
+void display(struct node* head)
+{
+    if (head==NULL)
+    {
+        printf("Node is empty");
+        return;
+    }
+    
+    struct node* temp =head;
+    //printf("temp data %d",temp->data);
+    while(temp!=NULL){
+        printf("%d ",temp->data);
+        temp= temp->next;
+    }
+    printf("\n reverse \n");
+    // struct node* rtemp =head;
+    
+    // while(rtemp!= NULL){
+    //     printf("%d ",temp->data);
+    //     temp= temp->prev;
+    // }    
+}
+void reversenode(struct node *head)
+{
+    if (head==NULL)
+    {
+        printf("Node is empty");
+        return;
+    } 
+    struct node* lastnode =head;
+    struct node* temp =head;
+    while(temp->next!=NULL){
+        temp= temp->next;
+    }
+    printf("temp data %d \n",temp->data);
+    if (temp->prev==NULL)
+        printf("temp->prev==NULL");
+    while(temp!= NULL){
+        printf("%d ",temp->data);
+        temp= temp->prev;
+    }   
+}
+
+int main()
+{
+    printf("Double Linked list \n");
+    struct node* head=NULL;
+    createNode(&head, 1);
+    createNode(&head, 2);
+    createNode(&head, 3);
+    display(head);
+    reversenode(head);
+    return 0;
+}
+
+output:
+Double Linked list 
+1 2 3 
+reverse 
+temp data 3 
+3 2 1 
 ```
