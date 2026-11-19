@@ -2339,3 +2339,53 @@ reverse
 temp data 3 
 3 2 1 
 ```
+
+``` c
+#include <stdio.h>
+
+void spiralPrint(int rows, int cols, int matrix[rows][cols])
+{
+    int top = 0;
+    int bottom = rows - 1;
+    int left = 0;
+    int right = cols - 1;
+
+    while (top <= bottom && left <= right)
+    {
+        // Left to Right
+        for (int i = left; i <= right; i++)
+            printf("ld: %d ", matrix[top][i]);
+        top++;
+
+        // Top to Bottom
+        for (int i = top; i <= bottom; i++)
+            printf("tb: %d ", matrix[i][right]);
+        right--;
+
+        // Right to Left
+        if (top <= bottom)
+        {
+            for (int i = right; i >= left; i--)
+                printf("%d ", matrix[bottom][i]);
+            bottom--;
+        }
+
+        // Bottom to Top
+        if (left <= right)
+        {
+            for (int i = bottom; i >= top; i--)
+                printf("%d ", matrix[i][left]);
+            left++;
+        }
+    }
+
+    printf("\n");
+}
+
+int main() {
+    int matrix[4][4] = { 1,  2,  3,  4, 5,  6,  7,  8, 9, 10, 11, 12, 13, 14, 15, 16};
+    spiralPrint(4, 4, matrix);
+    return 0;
+}
+saskan technology iq
+```
